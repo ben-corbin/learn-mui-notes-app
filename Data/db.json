@@ -1,0 +1,52 @@
+{
+  "notes": [
+    {
+      "title": "Get milk on the way home",
+      "details": "We need milk for the cookies we are going to destroy later on.",
+      "category": "reminders",
+      "id": 1
+    },
+    {
+      "title": "Clean the van",
+      "details": "Hoover inside, clean the windows inside, wash the outside, clean the seats",
+      "category": "todo",
+      "id": 4
+    },
+    {
+      "title": "Fix the roof",
+      "details": "Sort out the storm damage to the roof, don't forget the ladder",
+      "category": "home",
+      "id": 5
+    },
+    {
+      "title": "Learn MUI",
+      "details": "Check out Material UI and learn how it works with React",
+      "category": "work",
+      "id": 6
+    },
+    {
+      "title": "Do the laundry",
+      "details": "Get all the laundry done so that we can all wear clothes that smell nice and look clean.\nGet all the laundry done so that we can all wear clothes that smell nice and look clean.\nGet all the laundry done so that we can all wear clothes that smell nice and look clean.",
+      "category": "home",
+      "id": 7
+    },
+    {
+      "title": "Learn how to fly",
+      "details": "It's really going to come in handy if you just learn how to fly, so get on with it yeah!",
+      "category": "todo",
+      "id": 8
+    },
+    {
+      "title": "Listen to Laurent Garnier's new album",
+      "details": "It's bound to be a belter, so get it in your ears.",
+      "category": "reminder",
+      "id": 9
+    },
+    {
+      "title": "Walk the dog",
+      "details": "Learn the yo-yo trick walking the dog whilst walking the dog. Meta",
+      "category": "todo",
+      "id": 10
+    }
+  ]
+}
