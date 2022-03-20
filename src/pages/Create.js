@@ -1,5 +1,6 @@
 import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useLocation } from "react-router"
 import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import Button from "@mui/material/Button"
@@ -14,22 +15,61 @@ import {
 } from "@mui/material"
 import { useHistory } from "react-router-dom"
 
-export default function Create() {
+export default function Create(props) {
   const history = useHistory()
+  
   const [title, setTitle] = useState("")
   const [details, setDetails] = useState("")
   const [titleError, setTitleError] = useState(false)
   const [detailsError, setDetailsError] = useState(false)
   const [category, setCategory] = useState("work")
 
-  const handleSubmit = (e) => {
+  const location = useLocation()
+
+  useEffect(() => {
+    if(location.state) {
+      console.log("this is location.state", location.state)
+      const {note} = location.state
+      setNoteData(note)
+    }
+  }, [location] )
+
+  const [noteData, setNoteData] = useState({
+    title: "",
+    details: "",
+    category: "",
+  })
+
+
+  const handleSubmit = (e, id) => {
+
+    if (note.id) {
+      e.preventDefault()
+      fetch('http://localhost:4000/notes/' + id, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(noteData)
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        const editedNote = notes.map(note => 
+          note.id === data.id ? data : note
+          )
+          setNotes(editedNote)
+      })
+    }
+
+    else {
+
     e.preventDefault()
     setTitleError(false)
     setDetailsError(false)
 
-    if (title && details) {
-      console.log(title, details)
-    }
+    // if (title && details) {
+    //   console.log(title, details)
+    // }
 
     if (title === "") {
       setTitleError(true)
@@ -45,6 +85,7 @@ export default function Create() {
         body: JSON.stringify({title, details, category})
       }).then(() => history.push('/'))
     }
+   } 
   }
 
   return (

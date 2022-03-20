@@ -19,10 +19,34 @@ export default function Notes() {
     fetch("http://localhost:4000/notes/" + id, {
       method: "DELETE"
   })
-
   const newNotes = notes.filter(note => note.id !== id)
   setNotes(newNotes)
   }
+
+  
+  
+
+  // function handleEdit(id) {
+  //   // e.preventDefault()
+  //   fetch("http://localhost:4000/notes/" + id, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(noteData)
+  //   })
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     const editedNote = notes.map(note => 
+  //       note.id === data.id ? data : note
+  //       )
+  //       setNotes(editedNote)
+  //   })
+  // }
+   
+  
+  
+    
 
   const breakpoints = {
     default: 3,
@@ -39,7 +63,7 @@ export default function Notes() {
       >
         {notes.map((note) => (
           <div key={note.id}>
-            <NoteCard note={note} handleDelete={handleDelete}/>
+            <NoteCard note={note} handleDelete={handleDelete} handleEdit={handleEdit} />
           </div>
         ))}
       </Masonry>

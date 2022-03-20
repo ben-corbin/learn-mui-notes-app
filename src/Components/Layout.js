@@ -72,7 +72,7 @@ export default function Layout({ children }) {
         >
             <Toolbar>
                 <Typography sx={{flexGrow: 1}}>
-                   Today is the {format(new Date(), 'do MMMM Y')}
+                   Today's date is {format(new Date(), 'do MMMM Y')}
                 </Typography>
                 <Typography>
                     Ben Corbin
