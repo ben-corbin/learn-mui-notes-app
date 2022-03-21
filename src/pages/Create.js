@@ -16,8 +16,10 @@ import {
 import { useHistory } from "react-router-dom"
 
 export default function Create(props) {
-  const history = useHistory()
+
+  const { notes, setNotes } = props
   
+  const history = useHistory()
   const [title, setTitle] = useState("")
   const [details, setDetails] = useState("")
   const [titleError, setTitleError] = useState(false)
@@ -36,14 +38,13 @@ export default function Create(props) {
 
   const [noteData, setNoteData] = useState({
     title: "",
-    details: "",
-    category: "",
+    details: ""
   })
 
 
   const handleSubmit = (e, id) => {
 
-    if (note.id) {
+    if (notes.id) {
       e.preventDefault()
       fetch('http://localhost:4000/notes/' + id, {
         method: "PATCH",
@@ -62,14 +63,8 @@ export default function Create(props) {
     }
 
     else {
-
-    e.preventDefault()
     setTitleError(false)
     setDetailsError(false)
-
-    // if (title && details) {
-    //   console.log(title, details)
-    // }
 
     if (title === "") {
       setTitleError(true)

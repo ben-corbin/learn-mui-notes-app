@@ -6,13 +6,13 @@ import Masonry from "react-masonry-css"
 
 
 
-export default function Notes() {
-  const [notes, setNotes] = useState([])
+export default function Notes(props) {
+  const { notes, setNotes } = props
 
   useEffect(() => {
     fetch("http://localhost:4000/notes")
       .then((res) => res.json())
-      .then((notes) => setNotes(notes))
+      .then((data) => setNotes(data))
   }, [])
 
   const handleDelete = (id) => {
@@ -63,7 +63,7 @@ export default function Notes() {
       >
         {notes.map((note) => (
           <div key={note.id}>
-            <NoteCard note={note} handleDelete={handleDelete} handleEdit={handleEdit} />
+            <NoteCard note={note} handleDelete={handleDelete}/>
           </div>
         ))}
       </Masonry>

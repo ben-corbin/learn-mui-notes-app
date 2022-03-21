@@ -4,6 +4,7 @@ import { Card, IconButton, CardHeader, CardContent, Typography, Avatar } from '@
 import { DeleteOutlined } from '@material-ui/icons';
 import { yellow, green, pink, blue } from '@mui/material/colors';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
+import { Link } from "react-router-dom"
 
 const getAvatarBgColor = ({ category }) => ({
     work: yellow[700],
@@ -12,7 +13,7 @@ const getAvatarBgColor = ({ category }) => ({
   }[category] || blue[500]);
 
 
-export default function NoteCard({ note, handleDelete, handleEdit }) {
+export default function NoteCard({ note, handleDelete }) {
 
     return (
         <div>
@@ -28,9 +29,11 @@ export default function NoteCard({ note, handleDelete, handleEdit }) {
                     <IconButton onClick={() => handleDelete(note.id)}>
                       <DeleteOutlined />
                     </IconButton>
-                    <IconButton onClick={() => handleEdit(note.id)}>
+                    <Link to={`/create`} state={{note}}>
+                        <IconButton >
                         <ModeEditOutlineOutlinedIcon />
-                    </IconButton>
+                        </IconButton>
+                    </Link>
                     </>
                   }
                   
